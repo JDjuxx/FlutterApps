@@ -70,20 +70,6 @@ class _StartscreenState extends ConsumerState<Startscreen> {
           SizedBox(
             height: 40,
           ),
-          OutlinedButton(
-            onPressed: () {},
-            style: OutlinedButton.styleFrom(
-              backgroundColor: Color.fromARGB(125, 255, 81, 37),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              side: BorderSide(width: 1, color: Color(0xFFFF5025)),
-              padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-            ),
-            child: Text(
-              'Crear Quiz',
-              style: TextStyle(fontSize: 22),
-            ),
-          ),
           SizedBox(
             height: 15,
           ),
@@ -100,7 +86,7 @@ class _StartscreenState extends ConsumerState<Startscreen> {
               padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
             ),
             child: Text(
-              'Hacer Quiz',
+              'Ver Quizes',
               style: TextStyle(fontSize: 22),
             ),
           ),
