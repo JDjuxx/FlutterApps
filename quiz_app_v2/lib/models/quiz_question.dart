@@ -9,4 +9,19 @@ class QuizQuestion {
     shuffledList.shuffle();
     return shuffledList;
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'question': question,
+      'answers': answers,
+    };
+  }
+
+  String getAnswer() {
+    return answers[0];
+  }
+
+  factory QuizQuestion.fromJson(Map<String, dynamic> json) {
+    return (QuizQuestion(json['question'], json['answers']));
+  }
 }

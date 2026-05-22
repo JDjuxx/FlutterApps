@@ -55,7 +55,7 @@ class _StartscreenState extends ConsumerState<Startscreen> {
           //   ],
           // ),
           Text(
-            'Desafia Tu Mente',
+            'Desafía Tu Mente',
             style: Theme.of(context).textTheme.titleLarge!.copyWith(
                   color: Color(0xFF0D0D0D),
                   fontSize: 30,
