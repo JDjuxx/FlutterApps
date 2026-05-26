@@ -9,6 +9,7 @@ class QuizStorageService {
 
   Future<File> _getFile() async {
     final directory = await getApplicationDocumentsDirectory();
+    print('QUIZZES FILE PATH: ${directory.path}/$_fileName');
     return File('${directory.path}/$_fileName');
   }
 
@@ -22,6 +23,7 @@ class QuizStorageService {
       }
 
       final content = await file.readAsString();
+      print('CONTENT: $content');
 
       if (content.isEmpty) {
         return [];
@@ -29,9 +31,7 @@ class QuizStorageService {
 
       final List<dynamic> jsonList = jsonDecode(content);
 
-      return jsonList
-          .map((item) => Quiz.fromJson(item as Map<String, dynamic>))
-          .toList();
+      return jsonList.map((item) => Quiz.fromJson(item)).toList();
     } catch (e) {
       print('Error loading quizzes: $e');
       return [];

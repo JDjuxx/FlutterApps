@@ -39,12 +39,12 @@ class _QuizListScreenState extends ConsumerState<QuizListScreen> {
   Widget build(BuildContext context) {
     final quizListAsync = ref.watch(quizProvider);
 
-    Widget content = Center(
-      child: Text(
-        'No quizzes added yet',
-        style: TextTheme.of(context).titleMedium,
-      ),
-    );
+    // Widget content = Center(
+    //   child: Text(
+    //     'No quizzes added yet',
+    //     style: TextTheme.of(context).titleMedium,
+    //   ),
+    // );
 
     // if (quizList!.isNotEmpty) {
     //   content = ListView.builder(
@@ -69,6 +69,7 @@ class _QuizListScreenState extends ConsumerState<QuizListScreen> {
         ],
       ),
       body: quizListAsync.when(data: (quizList) {
+        print('QUIZZES IN UI: ${quizList.length}');
         if (quizList.isNotEmpty) {
           return ListView.builder(
             itemCount: quizList.length,

@@ -21,7 +21,7 @@ class Quiz {
   factory Quiz.fromJson(Map<String, dynamic> json) {
     return Quiz(
       json['title'],
-      (json['questions'] as List<dynamic>? ?? [])
+      (json['questions'] as List<dynamic>)
           .map((q) => QuizQuestion.fromJson(q))
           .toList(),
     );
