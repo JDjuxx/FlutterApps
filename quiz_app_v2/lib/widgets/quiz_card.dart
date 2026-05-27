@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quiz_app_v2/models/quiz.dart';
 import 'package:quiz_app_v2/providers/quiz_provider.dart';
-import 'package:quiz_app_v2/providers/quiz_storage_provider.dart';
+import 'package:quiz_app_v2/screens/quizScreen.dart';
+//import 'package:quiz_app_v2/providers/quiz_storage_provider.dart';
 
 class QuizCard extends ConsumerWidget {
   const QuizCard({super.key, required this.quiz});
@@ -30,14 +31,23 @@ class QuizCard extends ConsumerWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    child: Padding(
-                      padding: EdgeInsets.all(12),
-                      child: Row(
-                        children: [
-                          Text(quiz.title),
-                          Spacer(),
-                          Text('Preguntas: ${quiz.questions.length.toString()}')
-                        ],
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (ctx) => Quizscreen(quiz: quiz)));
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.all(12),
+                        child: Row(
+                          children: [
+                            Text(quiz.title),
+                            Spacer(),
+                            Text(
+                                'Preguntas: ${quiz.questions.length.toString()}')
+                          ],
+                        ),
                       ),
                     ),
                   ),

@@ -57,9 +57,12 @@ class _StartscreenState extends ConsumerState<Startscreen> {
           Text(
             'Desafía Tu Mente',
             style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                  color: Color(0xFF0D0D0D),
+                  color: Colors.white,
                   fontSize: 30,
                 ),
+          ),
+          SizedBox(
+            height: 40,
           ),
           CircleAvatar(
             radius: 100,
@@ -67,34 +70,38 @@ class _StartscreenState extends ConsumerState<Startscreen> {
               'assets/images/logo.jpg',
             ),
           ),
-          SizedBox(
-            height: 40,
-          ),
-          SizedBox(
-            height: 15,
-          ),
-          OutlinedButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (ctx) => QuizListScreen()));
-            },
-            style: OutlinedButton.styleFrom(
-              backgroundColor: Color.fromARGB(125, 255, 81, 37),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              side: BorderSide(width: 1, color: Color(0xFFFF5025)),
-              padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-            ),
-            child: Text(
-              'Ver Quizes',
-              style: TextStyle(fontSize: 22),
-            ),
-          ),
+          // SizedBox(
+          //   height: 40,
+          // ),
+          // SizedBox(
+          //   height: 15,
+          // ),
+          // OutlinedButton(
+          //   onPressed: () {
+          //     Navigator.push(context,
+          //         MaterialPageRoute(builder: (ctx) => QuizListScreen()));
+          //   },
+          //   style: OutlinedButton.styleFrom(
+          //     backgroundColor: Color.fromARGB(125, 255, 81, 37),
+          //     shape: RoundedRectangleBorder(
+          //         borderRadius: BorderRadius.circular(20)),
+          //     side: BorderSide(width: 1, color: Color(0xFFFF5025)),
+          //     padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+          //   ),
+          //   child: Text(
+          //     'Ver Quizes',
+          //     style: TextStyle(fontSize: 22),
+          //   ),
+          // ),
         ],
       ),
     );
 
     if (_selectedPageIndex == 1) {
+      activePage = QuizListScreen();
+    }
+
+    if (_selectedPageIndex == 2) {
       activePage = Helpscreen();
     }
 
@@ -104,17 +111,22 @@ class _StartscreenState extends ConsumerState<Startscreen> {
         iconSize: 20,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Principal'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.quiz_rounded), label: 'Quizzes'),
           BottomNavigationBarItem(icon: Icon(Icons.help), label: 'Ayuda'),
           BottomNavigationBarItem(
               icon: Icon(Icons.exit_to_app), label: 'Salir'),
         ],
         onTap: (index) {
-          if (index == 2) {
+          if (index == 3) {
             exit(0);
           }
           _selectPage(index);
         },
         currentIndex: _selectedPageIndex,
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Color(0xFFFAA754),
+        unselectedItemColor: Colors.grey,
       ),
     );
   }
