@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app_v2/models/quiz.dart';
-import 'package:quiz_app_v2/screens/ResultScreen.dart';
+import 'package:quiz_app_v2/screens/resultScreen.dart';
 import 'package:quiz_app_v2/widgets/answer_button.dart';
 
 class Quizscreen extends StatefulWidget {
@@ -20,6 +20,13 @@ class _QuizscreenState extends State<Quizscreen> {
     setState(() {
       currentIndex++;
       selectedAnswers.add(answer);
+    });
+  }
+
+  void onRestartQuiz() {
+    setState(() {
+      currentIndex = 0;
+      selectedAnswers = [];
     });
   }
 
@@ -56,11 +63,16 @@ class _QuizscreenState extends State<Quizscreen> {
         ),
       );
     } else {
-      content = Resultscreen();
+      content = ResultScreen(
+        choosenAnswers: selectedAnswers,
+        questions: widget.quiz.questions,
+        onRestartQuiz: onRestartQuiz,
+      );
     }
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(199, 248, 148, 47),
         title: Text(widget.quiz.title),
       ),
       body: content,

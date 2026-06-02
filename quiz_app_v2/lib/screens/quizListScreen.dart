@@ -56,6 +56,7 @@ class _QuizListScreenState extends ConsumerState<QuizListScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(199, 248, 148, 47),
         title: Text('LISTA DE QUIZZES'),
         actions: [
           IconButton(
