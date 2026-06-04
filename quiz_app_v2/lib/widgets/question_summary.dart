@@ -20,8 +20,8 @@ class QuestionSummary extends StatelessWidget {
                   padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: data['user_answer'] == data['correct_answer']
-                        ? Colors.amber
-                        : Colors.redAccent,
+                        ? Color(0xFF08872A)
+                        : Color(0xFF770404),
                     shape: BoxShape.circle,
                   ),
                   child: Text(((data['question_index'] as int) + 1).toString()),
@@ -36,7 +36,7 @@ class QuestionSummary extends StatelessWidget {
                       Text(
                         data['question'].toString(),
                         style: GoogleFonts.lato(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontSize: 15,
                             fontWeight: FontWeight.bold),
                       ),

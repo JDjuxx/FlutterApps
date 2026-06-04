@@ -37,29 +37,33 @@ class _QuizscreenState extends State<Quizscreen> {
     if (selectedAnswers.length != widget.quiz.questions.length) {
       final currentQuestion = widget.quiz.questions[currentIndex];
       content = Container(
-        margin: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              currentQuestion.question,
-              style: GoogleFonts.roboto(
-                color: Colors.black,
-                fontSize: 31,
-                fontWeight: FontWeight.bold,
+        color: Color(0xFFF4F3BA),
+        //margin: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                currentQuestion.question,
+                style: GoogleFonts.roboto(
+                  color: Colors.black,
+                  fontSize: 31,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            ...currentQuestion.getShuffleAnswers().map((answer) {
-              return AnswerButton(() {
-                answerQuestion(answer);
-              }, answerText: answer);
-            }),
-          ],
+              SizedBox(
+                height: 50,
+              ),
+              ...currentQuestion.getShuffleAnswers().map((answer) {
+                return AnswerButton(() {
+                  answerQuestion(answer);
+                }, answerText: answer);
+              }),
+            ],
+          ),
         ),
       );
     } else {
@@ -72,8 +76,11 @@ class _QuizscreenState extends State<Quizscreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(199, 248, 148, 47),
-        title: Text(widget.quiz.title),
+        backgroundColor: Color(0xFF4DA3F9),
+        title: Text(
+          widget.quiz.title,
+          style: TextStyle(color: Colors.white),
+        ),
       ),
       body: content,
     );

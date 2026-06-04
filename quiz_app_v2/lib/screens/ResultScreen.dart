@@ -37,15 +37,7 @@ class ResultScreen extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-          colors: [
-            Color.fromARGB(193, 255, 81, 37),
-            Color(0xFFFAA754),
-          ],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-        )),
+        decoration: BoxDecoration(color: Color(0xFFF4F3BA)),
         child: Padding(
           padding: EdgeInsets.all(35),
           child: Column(
@@ -54,7 +46,7 @@ class ResultScreen extends StatelessWidget {
               Text(
                 'Number of correct Answers: $correctQuestions/${questions.length}',
                 style: GoogleFonts.aclonica(
-                  color: const Color.fromARGB(187, 234, 228, 228),
+                  color: Colors.black,
                   fontSize: 27,
                   fontWeight: FontWeight.bold,
                 ),

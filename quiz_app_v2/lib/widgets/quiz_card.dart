@@ -16,7 +16,7 @@ class QuizCard extends ConsumerWidget {
     }
 
     return Card(
-      color: Colors.grey.shade100,
+      color: Color(0xFFF4F3BA),
       elevation: 8,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -58,7 +58,7 @@ class QuizCard extends ConsumerWidget {
                   },
                   icon: Icon(
                     Icons.delete_forever,
-                    color: Colors.red,
+                    color: Color(0xFF770404),
                   ),
                 ),
               ],

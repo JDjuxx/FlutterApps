@@ -28,11 +28,11 @@ class _StartscreenState extends ConsumerState<Startscreen> {
       decoration: BoxDecoration(
           gradient: LinearGradient(
         colors: [
-          Color.fromARGB(193, 255, 81, 37),
+          Color(0xFF770404),
           Color(0xFFFAA754),
         ],
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
       )),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -125,6 +125,7 @@ class _StartscreenState extends ConsumerState<Startscreen> {
         },
         currentIndex: _selectedPageIndex,
         type: BottomNavigationBarType.fixed,
+        backgroundColor: Color(0xFFF4F3BA),
         selectedItemColor: Color(0xFFFAA754),
         unselectedItemColor: Colors.grey,
       ),

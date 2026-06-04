@@ -56,21 +56,26 @@ class _QuizListScreenState extends ConsumerState<QuizListScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(199, 248, 148, 47),
-        title: Text('LISTA DE QUIZZES'),
+        backgroundColor: Color(0xFF4DA3F9),
+        title: Text(
+          'LISTA DE QUIZZES',
+          style: TextStyle(color: Colors.white),
+        ),
         actions: [
           IconButton(
-              onPressed: () async {
-                await ref
-                    .read(quizProvider.notifier)
-                    .addQuiz(Quiz('QUIZ DE PRUEBA', questions));
-                //_quizList.add(Quiz('QUIZ DE PRUEBA', questions));
-              },
-              icon: Icon(Icons.add))
+            onPressed: () async {
+              await ref
+                  .read(quizProvider.notifier)
+                  .addQuiz(Quiz('QUIZ DE PRUEBA', questions));
+              //_quizList.add(Quiz('QUIZ DE PRUEBA', questions));
+            },
+            icon: Icon(Icons.add_card),
+            color: Color(0xFF08872A),
+          )
         ],
       ),
       body: quizListAsync.when(data: (quizList) {
-        print('QUIZZES IN UI: ${quizList.length}');
+        //print('QUIZZES IN UI: ${quizList.length}');
         if (quizList.isNotEmpty) {
           return ListView.builder(
             itemCount: quizList.length,
