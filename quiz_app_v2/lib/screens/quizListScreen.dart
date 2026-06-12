@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quiz_app_v2/data/questions.dart';
 import 'package:quiz_app_v2/models/quiz.dart';
 import 'package:quiz_app_v2/providers/quiz_provider.dart';
+import 'package:quiz_app_v2/screens/addQuizScreen.dart';
 //import 'package:quiz_app_v2/providers/quiz_storage_provider.dart';
 import 'package:quiz_app_v2/widgets/quiz_card.dart';
 
@@ -63,11 +64,16 @@ class _QuizListScreenState extends ConsumerState<QuizListScreen> {
         ),
         actions: [
           IconButton(
-            onPressed: () async {
-              await ref
-                  .read(quizProvider.notifier)
-                  .addQuiz(Quiz('QUIZ DE PRUEBA', questions));
-              //_quizList.add(Quiz('QUIZ DE PRUEBA', questions));
+            // onPressed: () async {
+            //   await ref
+            //       .read(quizProvider.notifier)
+            //       .addQuiz(Quiz('QUIZ DE PRUEBA', questions));
+            //   //_quizList.add(Quiz('QUIZ DE PRUEBA', questions));
+            // },
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (ctx) {
+                return AddQuizScreen();
+              }));
             },
             icon: Icon(Icons.add_card),
             color: Color(0xFF08872A),
