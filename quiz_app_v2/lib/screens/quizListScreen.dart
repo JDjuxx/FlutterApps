@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:quiz_app_v2/models/quiz.dart';
 import 'package:quiz_app_v2/providers/quiz_provider.dart';
 import 'package:quiz_app_v2/screens/addQuizScreen.dart';
 //import 'package:quiz_app_v2/providers/quiz_storage_provider.dart';
@@ -33,6 +34,18 @@ class _QuizListScreenState extends ConsumerState<QuizListScreen> {
   //     _quizList = quizzes;
   //   });
   // }
+
+  Future<void> openAddQuiz() async {
+    final Quiz? newQuiz =
+        await Navigator.push(context, MaterialPageRoute(builder: (ctx) {
+      return AddQuizScreen();
+    }));
+
+    if (newQuiz != null) {
+      await ref.read(quizProvider.notifier).addQuiz(newQuiz);
+      setState(() {});
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,11 +81,7 @@ class _QuizListScreenState extends ConsumerState<QuizListScreen> {
             //       .addQuiz(Quiz('QUIZ DE PRUEBA', questions));
             //   //_quizList.add(Quiz('QUIZ DE PRUEBA', questions));
             // },
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (ctx) {
-                return AddQuizScreen();
-              }));
-            },
+            onPressed: openAddQuiz,
             icon: Icon(Icons.add_card),
             color: Color(0xFF08872A),
           )

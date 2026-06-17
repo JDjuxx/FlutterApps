@@ -114,7 +114,7 @@ class _QuestionBlockState extends State<QuestionBlock> {
     required Color color,
     TextInputType keyboardType = TextInputType.text,
   }) {
-    return TextField(
+    return TextFormField(
       controller: controller,
       keyboardType: keyboardType,
       decoration: InputDecoration(
@@ -132,6 +132,14 @@ class _QuestionBlockState extends State<QuestionBlock> {
           vertical: 14,
         ),
       ),
+      textInputAction: TextInputAction.next,
+      validator: (value) {
+        if (value == null || value.trim().isEmpty) {
+          return 'Ingresa el texto requerido';
+        }
+
+        return null;
+      },
     );
   }
 }
